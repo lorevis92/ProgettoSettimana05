@@ -35,13 +35,22 @@ public class Runner implements CommandLineRunner {
 //		edificioDao.save(edificio1);
 //		edificioDao.save(edificio2);
 
+		// Richiamo di un edificio datol'Id
+		Edificio edificioTrovato = edificioDao.findById(1); // non da problemi --> nel momento in cui creol'edifico, ma
+															// quando ne faccio la stampa aconsole manda tutto in
+															// errore.
+		// log.info(edificioTrovato.toString());
+
 		// Creazione Postazioni
-		Postazione postazione1 = (Postazione) ctx.getBean("creaPostazione");
-		postazione1.setDescrizione("Sala riunioni Mariott Londra");
-		postazione1.setTipo(TipoPostazione.SALARIUNIONI);
-		postazione1.setMax_capienza(25);
-		postazione1.setEdificio(edificio1);
-		log.info("\n" + postazione1.toString() + "\n");
+		Postazione postazione1 = Postazione.builder().descrizione("Sala riunioni Mariott Londra").edificio(edificio2)
+				.max_capienza(25).tipo(TipoPostazione.SALARIUNIONI).build();
+
+		// Salvataggio postazioni a Database --> funziona solo se lancio il salvataggio
+		// insieme al salvataggio dell'edificio. Ovviamente non è la condizione in cui
+		// voglio lavorare; Soluzione: invocare dal db un edificio esistente e passare
+		// quello comeparametro (PROBLEMA: come si legge a riga 39, non riesco ad
+		// attivare la funzionalità
+		// correttamente!!)
 		// postazioneDao.save(postazione1);
 
 

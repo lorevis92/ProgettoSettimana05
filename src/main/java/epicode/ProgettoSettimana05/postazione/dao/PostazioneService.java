@@ -16,7 +16,7 @@ public class PostazioneService implements IPostazioneDao {
 	@Override
 	public void save(Postazione postazione) {
 		postazioneRep.save(postazione);
-		log.info(postazione.getTipo() + " salvato\n\n");
+		log.info(postazione.getTipo() + " nell'edificio " + postazione.getEdificio().getNome() + " salvata\n\n");
 	}
 
 }
