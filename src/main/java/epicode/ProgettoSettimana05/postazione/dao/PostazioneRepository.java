@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import epicode.ProgettoSettimana05.postazione.Postazione;
 
+
 @Repository
 public interface PostazioneRepository extends JpaRepository<Postazione, Long> {
 
