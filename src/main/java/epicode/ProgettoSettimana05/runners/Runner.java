@@ -11,6 +11,8 @@ import epicode.ProgettoSettimana05.edificio.dao.IEdificioDao;
 import epicode.ProgettoSettimana05.postazione.Postazione;
 import epicode.ProgettoSettimana05.postazione.TipoPostazione;
 import epicode.ProgettoSettimana05.postazione.dao.IPostazioneDao;
+import epicode.ProgettoSettimana05.user.User;
+import epicode.ProgettoSettimana05.user.dao.IUserDao;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
@@ -21,6 +23,9 @@ public class Runner implements CommandLineRunner {
 
 	@Autowired
 	private IPostazioneDao postazioneDao;
+
+	@Autowired
+	private IUserDao userDao;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -52,7 +57,15 @@ public class Runner implements CommandLineRunner {
 		// attivare la funzionalità
 		// correttamente!!)
 		// postazioneDao.save(postazione1);
+		
+		// Creazione utenti
+		
+		User user1 = User.builder().user_name("utente1").nome_cognome("Utente Solitario")
+				.mail("utentesolitario.gmail.com").build();
+		log.info(user1.toString());
 
+		// Salva utenti a Database
+		userDao.save(user1);
 
 		ctx.close();
 
