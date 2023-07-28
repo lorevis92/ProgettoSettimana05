@@ -42,7 +42,7 @@ public class Runner implements CommandLineRunner {
 		postazione1.setMax_capienza(25);
 		postazione1.setEdificio(edificio1);
 		log.info("\n" + postazione1.toString() + "\n");
-//		postazioneDao.save(postazione1);
+		// postazioneDao.save(postazione1);
 
 
 		ctx.close();
