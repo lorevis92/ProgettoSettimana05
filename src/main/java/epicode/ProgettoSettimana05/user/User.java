@@ -17,8 +17,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class User {
 	@Id
-	String userName;
-	String nomeCognome;
+	String user_name;
+	String nome_cognome;
 	String mail;
 	@OneToMany(mappedBy = "user")
 	private Set<Prenotazione> postazioniEdificio = new HashSet<>();

@@ -20,7 +20,7 @@ public class Prenotazione {
 	@Id
 	@GeneratedValue
 	private long prenotazione_id;
-	LocalDate dataPrenotazione;
+	LocalDate data_prenotazione;
 
 	@ManyToOne
 	@jakarta.persistence.JoinColumn(name = "prenotazione_postazione")

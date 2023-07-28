@@ -15,17 +15,19 @@ import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class Postazione {
 	@Id
 	@GeneratedValue
 	private long postazione_id;
 	private String descrizione;
-	private int maxCapienza;
+	private int max_capienza;
 
 	@Enumerated(EnumType.ORDINAL)
 	TipoPostazione tipo;
@@ -37,10 +39,10 @@ public class Postazione {
 	@OneToMany(mappedBy = "postazione")
 	private Set<Prenotazione> postazioniEdificio = new HashSet<>();
 
-	public Postazione(String descrizione, int maxCapienza, TipoPostazione tipo, Edificio edificio) {
+	public Postazione(String descrizione, int maxCapienza, TipoPostazione tipo) {
 		this.descrizione = descrizione;
-		this.maxCapienza = maxCapienza;
+		this.max_capienza = maxCapienza;
 		this.tipo = tipo;
-		this.edificio = edificio;
+		// this.edificio = edificio;
 	}
 }
