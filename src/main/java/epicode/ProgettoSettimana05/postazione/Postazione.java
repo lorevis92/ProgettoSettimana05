@@ -37,12 +37,12 @@ public class Postazione {
 	private Edificio edificio;
 
 	@OneToMany(mappedBy = "postazione")
-	private Set<Prenotazione> postazioniEdificio = new HashSet<>();
+	private Set<Prenotazione> prenotazioniPostazione = new HashSet<>();
 
-	public Postazione(String descrizione, int maxCapienza, TipoPostazione tipo) {
+	public Postazione(String descrizione, int maxCapienza, TipoPostazione tipo, Edificio edificio) {
 		this.descrizione = descrizione;
 		this.max_capienza = maxCapienza;
 		this.tipo = tipo;
-		// this.edificio = edificio;
+		this.edificio = edificio;
 	}
 }
